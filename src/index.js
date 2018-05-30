@@ -11,10 +11,7 @@ import middleware from './middleware';
 const store = createStore(reducer,middleware)
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </BrowserRouter>
-    
+    <Provider store={store}>
+        <App />
+    </Provider>
     , document.getElementById('root'))
