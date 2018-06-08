@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { handleAddTweet } from '../actions/tweets';
 
 class TweetForm extends React.Component {
     state = {
@@ -13,7 +15,11 @@ class TweetForm extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+
         const { text } = this.state;
+        const { dispatch,id } = this.props
+
+        dispatch(handleAddTweet(text,id))
         this.setState(() => ({
             text: ''
         }))
@@ -49,4 +55,4 @@ class TweetForm extends React.Component {
     }
 }
 
-export default TweetForm
+export default connect()(TweetForm)
